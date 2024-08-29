@@ -1,0 +1,39 @@
+{
+	"$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+	"contentVersion": "1.0.0.0",
+	"parameters": {
+		"factoryName": {
+			"value": "adf-dev-Atish"
+		},
+		"ls_sourse_adls_genn2_accountKey": {
+			"value": ""
+		},
+		"AzureBlobStorage1_connectionString": {
+			"value": ""
+		},
+		"ls_source_sql_server_connectionString": {
+			"value": ""
+		},
+		"ls_Target_Database_connectionString": {
+			"value": ""
+		},
+		"Sales_TumblingWindowTrigger_properties_pipeline_parameters_StartDate": {
+			"value": "@trigger().outputs.windowStartTime\n"
+		},
+		"Sales_TumblingWindowTrigger_properties_pipeline_parameters_EndDate": {
+			"value": "@trigger().outputs.windowEndTime"
+		},
+		"ls_sourse_adls_genn2_properties_typeProperties_url": {
+			"value": "https://adlsgen212.dfs.core.windows.net"
+		},
+		"lsRestService1_properties_typeProperties_url": {
+			"value": "https://reqres.in/api/users"
+		},
+		"containerUri": {
+			"value": ""
+		},
+		"containerSasToken": {
+			"value": ""
+		}
+	}
+}
