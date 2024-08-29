@@ -1,0 +1,21 @@
+{
+	"name": "adf-dev-Atish",
+	"properties": {
+		"globalParameters": {
+			"TargetContainer": {
+				"type": "string",
+				"value": "sourcecontgen2"
+			},
+			"FilePath": {
+				"type": "string",
+				"value": "target"
+			}
+		}
+	},
+	"location": "eastus",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "d7b74013-b805-44fe-add0-12e2dd82f74e",
+		"tenantId": "732e4fec-117b-40ec-a703-91b22c49840c"
+	}
+}

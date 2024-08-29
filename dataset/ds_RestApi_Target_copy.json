@@ -1,0 +1,33 @@
+{
+	"name": "ds_RestApi_Target_copy",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sourse_adls_genn2",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"APIpage": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().APIpage",
+					"type": "Expression"
+				},
+				"folderPath": "RestTarget",
+				"fileSystem": "sourcecontgen2"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": false,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

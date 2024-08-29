@@ -1,0 +1,57 @@
+{
+	"name": "ds_target_loadMultiTables_create_folders",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sourse_adls_genn2",
+			"type": "LinkedServiceReference"
+		},
+		"parameters": {
+			"TableName": {
+				"type": "string"
+			}
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": {
+					"value": "@dataset().TableName",
+					"type": "Expression"
+				},
+				"folderPath": {
+					"value": "@concat('target/sales/',dataset().TableName)",
+					"type": "Expression"
+				},
+				"fileSystem": "sourcecontgen2"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "ID",
+				"type": "String"
+			},
+			{
+				"name": "Brand",
+				"type": "String"
+			},
+			{
+				"name": "Model",
+				"type": "String"
+			},
+			{
+				"name": "Year",
+				"type": "String"
+			},
+			{
+				"name": "UnitsSold",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}

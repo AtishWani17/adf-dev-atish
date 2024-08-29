@@ -1,0 +1,24 @@
+{
+	"name": "ds_target_copyfile_based_on_size",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "ls_sourse_adls_genn2",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"folderPath": "target/size",
+				"fileSystem": "sourcecontgen2"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": false,
+			"quoteChar": "\""
+		},
+		"schema": []
+	},
+	"type": "Microsoft.DataFactory/factories/datasets"
+}
