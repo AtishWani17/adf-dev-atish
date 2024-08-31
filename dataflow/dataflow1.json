@@ -20,10 +20,22 @@
 					"description": "Employessinfo Table"
 				}
 			],
-			"sinks": [],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "ds_target_dataflows_op",
+						"type": "DatasetReference"
+					},
+					"name": "sink1Destination",
+					"description": "write o/p in target destination"
+				}
+			],
 			"transformations": [
 				{
 					"name": "join1"
+				},
+				{
+					"name": "filter1"
 				}
 			],
 			"scriptLines": [
@@ -53,7 +65,26 @@
 				"     joinType:'inner',",
 				"     matchType:'exact',",
 				"     ignoreSpaces: false,",
-				"     broadcast: 'auto')~> join1"
+				"     broadcast: 'auto')~> join1",
+				"join1 filter(equals(dep, 'IT')) ~> filter1",
+				"filter1 sink(allowSchemaDrift: true,",
+				"     validateSchema: false,",
+				"     partitionFileNames:['Dataflowop'],",
+				"     umask: 0022,",
+				"     preCommands: [],",
+				"     postCommands: [],",
+				"     skipDuplicateMapInputs: true,",
+				"     skipDuplicateMapOutputs: true,",
+				"     mapColumn(",
+				"          emp_id = source1Table@id,",
+				"          emp_name = name,",
+				"          dep,",
+				"          salary,",
+				"          last_updated = source1Table@last_updated,",
+				"          location,",
+				"          mobilenum,",
+				"          address",
+				"     )) ~> sink1Destination"
 			]
 		}
 	}
